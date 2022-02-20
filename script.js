@@ -37,6 +37,8 @@ const inputHTML = (data) => {
             <h3>${data.name}, ${data.sys.country}</h3>
             <p>${toCelcius(data.main.temp)}° F</p>
             <p>Feels like ${toCelcius(data.main.feels_like)}° F</p>
+            <p>High of ${toCelcius(data.main.temp_max)}° F</p>
+            <p>Low of ${toCelcius(data.main.temp_min)}° F</p>
             <p>${data.main.humidity}% Humidity</p>
             <p>${data.weather[0].main}, ${data.weather[0].description}</p>
             <p>By <a href="https://terrance-ford.herokuapp.com/" target="_blank">Terrance Ford</a></p>
@@ -47,7 +49,7 @@ const inputHTML = (data) => {
 const showPosition = async (position) =>{
     let url = `https://weather-proxy.freecodecamp.rocks/api/current?lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
     getJSON(url).then((data)=>{
-        console.log(data);
+        //console.log(data);
         inputHTML(data);
     })
 };
