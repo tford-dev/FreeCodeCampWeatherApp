@@ -15,10 +15,6 @@ body {
     color: #fff;
 }
 
-a {
-    text-decoration: none;
-} 
-
 a:visited, a:link {
     color: #fff;
 } 
