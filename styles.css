@@ -18,3 +18,7 @@ body {
 a:visited, a:link {
     color: #fff;
 } 
+
+i {
+    font-size: 100px;
+}

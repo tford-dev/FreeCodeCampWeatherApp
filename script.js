@@ -30,10 +30,33 @@ const toCelcius = (num) => {
     return Math.round(F);
 }
 
+const weatherIcon = (data) => {
+    if(data.indexOf("clear") !== -1){
+        return '<i class="fa-solid fa-sun"></i>'
+    } else if(data.indexOf("partly") !== -1){
+        return '<i class="fa-solid fa-sun-cloud"></i>'
+    } else if(data.indexOf("cloudy") !== -1){
+        return '<i class="fa-solid fa-clouds"></i>'
+    } else if(data.indexOf("fog") !== -1){
+        return '<i class="fa-solid fa-cloud-fog"></i>'
+    } else if(data.indexOf("thunder") !== -1){
+        return '<i class="fa-solid fa-bolt-lightning"></i>'
+    }else if(data.indexOf("heavy rain") !== -1){
+        return '<i class="fa-solid fa-cloud-showers-heavy"></i>'
+    }else if(data.indexOf("rain") !== -1){
+        return '<i class="fa-solid fa-cloud-showers"></i>'
+    } else if(data.indexOf("snow") !== -1){
+        return '<i class="fa-solid fa-cloud-snow"></i>'
+    } else {
+        return "";
+    }
+}
+
 const inputHTML = (data) => {
     body.insertAdjacentHTML('beforeend', `
         <div class="container">
             <h1>Free Code Camp Weather App</h1>
+            <p>${weatherIcon(data.weather[0].main.toLowerCase())}</p>
             <h3>${data.name}, ${data.sys.country}</h3>
             <p>${toCelcius(data.main.temp)}° F</p>
             <p>Feels like ${toCelcius(data.main.feels_like)}° F</p>
